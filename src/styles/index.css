@@ -1,0 +1,280 @@
+:root {
+  --blue: #668ba4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--blue);
+  font-weight: 200;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.left-side {
+  height: 100vh;
+  width: 50%;
+  background-color: #feffdf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-body {
+  border: 1px solid #a79f65a9;
+  padding: 1em;
+}
+
+.form-group {
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  margin-left: auto;
+  height: 2em;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #dae5d0;
+  padding-left: 4px;
+  font-family: sans-serif;
+}
+
+.form-label {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  margin-right: 1em;
+}
+
+.btn {
+  margin: 0 50%;
+  margin-top: 14px;
+  transform: translateX(-50%);
+  padding: 8px;
+  background: transparent;
+  border: 1px solid #a79f65a9;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.btn:hover {
+  background: #a79f65;
+}
+
+.right-side {
+  height: 100vh;
+  width: 50%;
+  background: #79c2d0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.weather-container {
+  width: 600px;
+  height: 400px;
+}
+
+.city-name {
+  padding: 8px;
+  padding-bottom: 0px;
+  margin-left: 2%;
+  margin-bottom: 12px;
+  position: relative;
+  letter-spacing: 4px;
+  font-weight: 200;
+}
+
+.city-name::after {
+  position: absolute;
+  content: "";
+  border-top: #668ba4 1px solid;
+  width: 90%;
+  height: 1px;
+  left: 1%;
+  bottom: -2%;
+}
+
+.details-container {
+}
+
+.icon {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 18px 18px 18px;
+}
+
+.fahrenheit {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  position: relative;
+  margin-top: 18px;
+  text-align: center;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.fahrenheit::after {
+  position: absolute;
+  content: "";
+  height: 30px;
+  right: -2%;
+  border-right: 2px solid #668ba4;
+  cursor: default;
+}
+
+.celsius {
+  opacity: 0.5;
+  text-align: center;
+  margin-top: 18px;
+  position: relative;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.celsius::before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  left: -2%;
+  border-left: 2px solid #668ba4;
+  cursor: default;
+}
+
+.week-details {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+
+.week-details li {
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+span {
+  display: block;
+}
+
+.degrees {
+  width: 100px;
+  height: 100px;
+  font-size: 64px;
+  margin: 18px -28px 18px 0;
+}
+.day-container {
+  display: flex;
+}
+
+.day-details {
+  margin-left: auto;
+  margin-right: 10%;
+  margin-top: 18px;
+}
+
+.day {
+  font-size: 20px;
+}
+
+.letter-spacing {
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.wind {
+  margin-top: 16px;
+}
+
+.weather-description {
+}
+
+.highest {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.lowest {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 4444;
+}
+
+.activeDegrees {
+  opacity: 1;
+}
+
+.loader {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  margin-top: 128px;
+  position: relative;
+  color: #668ba4;
+  left: -100px;
+  box-sizing: border-box;
+  animation: shadowRolling 2s linear infinite;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 #668ba4, 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 #668ba4, 100px 0 #668ba4, 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 #668ba4, 110px 0 #668ba4, 100px 0 #668ba4,
+      0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 #668ba4, 120px 0 #668ba4, 110px 0 #668ba4,
+      100px 0 #668ba4;
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 #668ba4, 120px 0 #668ba4,
+      110px 0 #668ba4;
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 #668ba4, 120px 0 #668ba4;
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 #668ba4;
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
