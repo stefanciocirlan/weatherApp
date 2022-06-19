@@ -25,3 +25,6 @@ npm start
 
 Here you go! You are set up!
 
+
+You can check the deployed version here: https://weather-applf.netlify.app/
+
