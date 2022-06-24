@@ -1,0 +1,47 @@
+.weather-history-container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  margin: 24px 12px;
+  max-height: 10em;
+}
+
+.weather-history-container::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-history-item {
+  display: flex;
+  padding: 4px 8px;
+  margin: 0.05em 0px;
+  line-height: 2;
+  align-items: center;
+}
+
+.weather-history-item:hover {
+  background: #668ba41e;
+}
+
+.city-name-history {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.city-temp-history {
+  display: block;
+  margin-left: auto;
+  letter-spacing: 2px;
+  font-size: 18px;
+  margin-right: 2px;
+}
+
+.weather-history-item:first-child {
+  margin-top: 0;
+}
+
+.weather-history-item:last-child {
+  margin-bottom: 0;
+}

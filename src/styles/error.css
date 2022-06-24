@@ -1,0 +1,27 @@
+.error-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.error-container div {
+  position: absolute;
+  bottom: 120%;
+  right: 30%;
+}
+
+.x-icon-1
+{
+    position: absolute;
+    top:-210%;
+    left:50%;
+}
+
+.x-icon-2
+{
+    position: absolute;
+    top:-210%;
+    left:59%;
+}
+

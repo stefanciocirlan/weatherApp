@@ -27,3 +27,4 @@ export function getCurrentTime() {
 const convertTime = (time) => {
     return time.toString().length == 1 ? `0${time}` : time;
 }
+
