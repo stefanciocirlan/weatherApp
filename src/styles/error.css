@@ -1,8 +1,13 @@
+:root {
+  --blue: #668ba4;
+}
+
 .error-container {
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  color: var(--blue);
 }
 
 .error-container div {

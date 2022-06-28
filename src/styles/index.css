@@ -6,11 +6,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--blue);
   font-weight: 200;
 }
 
-.card {
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
@@ -92,6 +96,7 @@
   position: relative;
   letter-spacing: 4px;
   font-weight: 200;
+  color: var(--blue);
 }
 
 .city-name::after {
@@ -122,6 +127,7 @@
   position: relative;
   margin-top: 18px;
   text-align: center;
+  color: var(--blue);
   opacity: 0.5;
   cursor: pointer;
 }
@@ -130,7 +136,7 @@
   content: "";
   height: 30px;
   right: -2%;
-  border-right: 2px solid #668ba4;
+  border-right: 2px solid var(--blue);
   cursor: default;
 }
 
@@ -143,6 +149,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  color: var(--blue);
 }
 
 .celsius::before {
@@ -150,7 +157,7 @@
   content: "";
   height: 30px;
   left: -2%;
-  border-left: 2px solid #668ba4;
+  border-left: 2px solid var(--blue);
   cursor: default;
 }
 
@@ -178,6 +185,7 @@ span {
   height: 100px;
   font-size: 64px;
   margin: 18px -28px 18px 0;
+  color: var(--blue);
 }
 .day-container {
   display: flex;
@@ -187,6 +195,7 @@ span {
   margin-left: auto;
   margin-right: 10%;
   margin-top: 18px;
+  color: var(--blue);
 }
 
 .day {
@@ -226,6 +235,12 @@ span {
   opacity: 1;
 }
 
+.map-icon {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+}
+
 .loader {
   width: 10px;
   height: 10px;
@@ -234,10 +249,21 @@ span {
   margin: 15px auto;
   margin-top: 128px;
   position: relative;
-  color: #668ba4;
+  color: var(--blue);
   left: -100px;
   box-sizing: border-box;
   animation: shadowRolling 2s linear infinite;
+}
+
+.arrow-up-icon {
+  display:none;
+  position: absolute;
+  z-index: 99999999;
+  top: 1%;
+  right: 2%;
+  background-color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
 }
 
 @keyframes shadowRolling {
@@ -276,5 +302,21 @@ span {
   100% {
     box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
       200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+@media only screen and (max-width: 1110px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-side {
+    width: 100%;
+  }
+  .right-side {
+    width: 100%;
+  }
+  .arrow-up-icon
+  {
+    display: block;
   }
 }

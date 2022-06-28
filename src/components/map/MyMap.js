@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import {DEFAULT_POSITION} from "../../helpers/constants.js";
+import { DEFAULT_POSITION } from "../../helpers/constants.js";
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
@@ -12,7 +12,7 @@ let DefaultIcon = L.icon({
     shadowUrl: iconShadow,
 });
 
-export default function Map(props) {
+const Map = React.forwardRef((props, ref) => {
     const [position, setPosition] = useState(DEFAULT_POSITION);
     let map;
     let marker;
@@ -44,7 +44,7 @@ export default function Map(props) {
 
 
     const handleClick = (event) => {
-        const {handlePosition} = props;
+        const { handlePosition } = props;
         const latlng = { ...event.latlng };
         console.log(event);
         setPosition(latlng);
@@ -57,5 +57,10 @@ export default function Map(props) {
         marker = L.marker([pos.lat, pos.lng]);
         marker.addTo(map);
     }
-    return <div id="map" className="map"></div>;
-}
+
+
+    return <div id="map" ref={ref} className="map"></div>;
+});
+
+
+export default Map;

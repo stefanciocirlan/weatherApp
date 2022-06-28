@@ -1,3 +1,7 @@
+:root {
+  --blue: #668ba4;
+}
+
 .weather-history-container {
   list-style: none;
   display: flex;
@@ -6,6 +10,7 @@
   overflow: auto;
   margin: 24px 12px;
   max-height: 10em;
+  color: var(--blue);
 }
 
 .weather-history-container::-webkit-scrollbar {

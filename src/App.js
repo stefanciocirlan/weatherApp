@@ -1,48 +1,48 @@
-import { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import MyMap from './components/map/MyMap';
 import WeatherCard from './components/weather/WeatherCard';
 import ErrorBoundary from './ErrorBoundary.js';
 import { Route, Routes } from 'react-router-dom';
 import NotFound from './NotFound.js';
+import MapIcon from './icons/map-icon';
+import ArrowUp from './icons/arrow-up';
 
 
 function App() {
 
-  const cityRef = useRef();
-  const latRef = useRef();
-  const longRef = useRef();
+  const mapRef = React.createRef();
+  const arrowRef = React.createRef();
+  const weatherCardRef = React.createRef();
   const [position, setPosition] = useState({});
 
-
-  const resetInputs = () => {
-    cityRef.current.value = '';
-    latRef.current.value = '';
-    longRef.current.value = '';
-  }
-
   const handlePosition = (pos) => {
-
     setPosition(pos);
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    resetInputs();
+  const scrollToTheMap = () => {
+    mapRef.current.scrollIntoView();
   }
 
+  const scrollToTheWeatherCard = () => {
+    weatherCardRef.current.scrollIntoView();
+  }
+
+ 
   return (
 
-    <div className="card">
-      <div className="left-side">
+    <div className="container">
+      <div ref={weatherCardRef} className="left-side">
+        <div onClick={scrollToTheMap} className="map-icon"><MapIcon /></div>
         <ErrorBoundary>
           <Routes>
             <Route exact path='/' element={<WeatherCard position={position} />} />
-            <Route path='*' element={<NotFound/>}/>
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </ErrorBoundary>
       </div>
       <div className="right-side">
-        <MyMap handlePosition={handlePosition} />
+        <MyMap ref={mapRef} handlePosition={handlePosition} />
+        <a ref={arrowRef} onClick={scrollToTheWeatherCard} className="arrow-up-icon"><ArrowUp /></a>
       </div>
     </div>
   );
