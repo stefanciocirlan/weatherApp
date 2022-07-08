@@ -32,8 +32,9 @@ const WeatherCard = (props) => {
 
   useEffect(() => {
     const weatherDetails = fetchData(position);
-    weatherDetails.then(response => setWeatherObject(response));
 
+    weatherDetails.then(response => setWeatherObject(response.data[0]));
+    
   }, [position])
 
   const handleShowFahrenheit = () => {
@@ -70,21 +71,21 @@ const WeatherCard = (props) => {
 
   return <div className='weather-container'>
     {weatherObject == undefined ? <Loader /> :
-      <><h1 className='city-name'>{weatherObject?.name},{weatherObject?.sys.country}</h1>
+      <><h1 className='city-name'>{weatherObject?.city},{weatherObject?.country}</h1>
         <section className='details-container'>
           <div className='day-container'>
-            <div className='icon'>{renderIcon(weatherObject?.weather[0].description)}</div>
+            <div className='icon'>{renderIcon(weatherObject?.description)}</div>
             <div className='degrees'>
               {showFahrenehit ?
-                kelvinToFahrenheit(weatherObject?.main?.temp)
-                : kelvinToCelsius(weatherObject?.main?.temp)}
+                kelvinToFahrenheit(weatherObject?.temp)
+                : kelvinToCelsius(weatherObject?.temp)}
             </div>
             {renderDegrees()}
             <div className='day-details'>
               <WeatherCurTime />
-              <p className='weather-description letter-spacing'>{camelCaseString(weatherObject?.weather[0].description)}</p>
-              <p className='wind letter-spacing'>Pressure: {weatherObject?.main.pressure} hPa</p>
-              <p className='humidity letter-spacing'>Humidity: {weatherObject?.main.humidity}% </p>
+              <p className='weather-description letter-spacing'>{camelCaseString(weatherObject?.description)}</p>
+              <p className='wind letter-spacing'>Pressure: {weatherObject?.pressure} hPa</p>
+              <p className='humidity letter-spacing'>Humidity: {weatherObject?.humidity}% </p>
             </div>
           </div>
           <WeatherHistory />

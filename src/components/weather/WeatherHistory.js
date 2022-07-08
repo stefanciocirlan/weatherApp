@@ -9,9 +9,9 @@ const WeatherHistory = () => {
     const renderHistoryItems = () => {
         
         return historyItems?.map(cityObject => {
-            return <li key={cityObject?.id} className='weather-history-item'>
-                <span className='city-name-history'>{cityObject?.name}</span>
-                <span className="city-temp-history">{kelvinToCelsius(cityObject?.main.temp)} °C</span>
+            return <li key={Math.random()} className='weather-history-item'>
+                <span className='city-name-history'>{cityObject?.city}</span>
+                <span className="city-temp-history">{kelvinToCelsius(cityObject?.temp)} °C</span>
             </li >
         })
     }
